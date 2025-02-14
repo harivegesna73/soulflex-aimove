@@ -103,21 +103,27 @@ export type Database = {
       }
       profiles: {
         Row: {
+          avatar_url: string | null
           created_at: string | null
+          full_name: string | null
           id: string
           is_farmer: boolean | null
           updated_at: string | null
           username: string
         }
         Insert: {
+          avatar_url?: string | null
           created_at?: string | null
+          full_name?: string | null
           id: string
           is_farmer?: boolean | null
           updated_at?: string | null
           username: string
         }
         Update: {
+          avatar_url?: string | null
           created_at?: string | null
+          full_name?: string | null
           id?: string
           is_farmer?: boolean | null
           updated_at?: string | null
@@ -130,7 +136,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_current_user_profile: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          avatar_url: string | null
+          created_at: string | null
+          full_name: string | null
+          id: string
+          is_farmer: boolean | null
+          updated_at: string | null
+          username: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
